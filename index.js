@@ -6,7 +6,7 @@ module.exports = function(source) {
   const callback = this.async();
   const tmp = path.join(__dirname, 'tmp');
   const fname = path.basename(this.resourcePath, '.dart');
-  const cmd = `dart2js -o '${path.join(tmp, `${fname}.js`)}' '${this.resourcePath}'`;
+  const cmd = `dart compile js -o '${path.join(tmp, `${fname}.js`)}' '${this.resourcePath}'`;
   child_process.execSync(`rm -rf '${tmp}'`);
   child_process.execSync(`mkdir -p '${tmp}'`);
 
